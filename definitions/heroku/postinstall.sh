@@ -8,7 +8,7 @@ apt-get -y update
 apt-get -y upgrade
 apt-get -y install linux-headers-$(uname -r) build-essential
 apt-get -y install zlib1g-dev libssl-dev libreadline5-dev
-apt-get -y install libxml2-dev libxslt
+apt-get -y install libxml2-dev libxslt libcurl4-openssl-dev
 apt-get clean
 
 # Setup sudo to allow no-password sudo for "admin"
@@ -31,29 +31,28 @@ cd ..
 rm -rf ruby-1.9.2-p180*
 chmod a+w /opt/ruby
 
-# Install RubyGems 1.7.2
-wget http://production.cf.rubygems.org/rubygems/rubygems-1.7.2.tgz
-tar xzf rubygems-1.7.2.tgz
-cd rubygems-1.7.2
+# Install RubyGems 1.3.7
+wget http://production.cf.rubygems.org/rubygems/rubygems-1.3.7.tgz
+tar xzf rubygems-1.3.7.tgz
+cd rubygems-1.3.7
 /opt/ruby/bin/ruby setup.rb
 cd ..
-rm -rf rubygems-1.7.2*
-/opt/ruby/bin/gem update --system
+rm -rf rubygems-1.3.7*
 
 # Installing chef & Puppet
 /opt/ruby/bin/gem install chef --no-ri --no-rdoc
 /opt/ruby/bin/gem install puppet --no-ri --no-rdoc
 /opt/ruby/bin/gem install bundler --no-ri --no-rdoc
 
-# Install PostgreSQL 8.3.14
-wget http://ftp.postgresql.org/pub/source/v8.3.14/postgresql-8.3.14.tar.gz
-tar xzf postgresql-8.3.14.tar.gz
-cd postgresql-8.3.14
+# Install PostgreSQL 8.3.11
+wget http://ftp.postgresql.org/pub/source/v8.3.11/postgresql-8.3.11.tar.gz
+tar xzf postgresql-8.3.11.tar.gz
+cd postgresql-8.3.11
 ./configure
 make
 make install
 cd ..
-rm -rf postgresql-8.3.14*
+rm -rf postgresql-8.3.11*
 
 # Initialize postgres DB
 useradd -p postgres postgres
@@ -91,10 +90,6 @@ sh /mnt/VBoxLinuxAdditions.run
 umount /mnt
 
 rm VBoxGuestAdditions_$VBOX_VERSION.iso
-
-# Remove items used for building, since they aren't needed anymore
-apt-get -y remove linux-headers-$(uname -r) build-essential
-apt-get -y autoremove
 
 # Zero out the free space to save space in the final image:
 dd if=/dev/zero of=/EMPTY bs=1M

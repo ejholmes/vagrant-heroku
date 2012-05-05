@@ -40,4 +40,5 @@ the Celadon Cedar stack.
 
 * Ubuntu 10.04
 * Ruby 1.9.2-p180 MRI
-* PostgreSQL 8.3.14
+* RubyGems 1.3.7
+* PostgreSQL 8.3.11

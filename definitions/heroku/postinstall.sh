@@ -54,7 +54,7 @@ cd ..
 rm -rf postgresql-8.3.14*
 
 # Initialize postgres DB
-adduser --system postgres
+useradd -p postgres postgres
 mkdir /usr/local/pgsql/data
 chown postgres /usr/local/pgsql/data
 su -c "/usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data" postgres

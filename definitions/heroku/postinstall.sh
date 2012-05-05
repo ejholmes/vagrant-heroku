@@ -22,14 +22,14 @@ apt-get -y install nfs-common
 # can install their own Rubies using packages or however.
 # We must install the 1.8.x series since Puppet doesn't support
 # Ruby 1.9 yet.
-wget http://ftp.ruby-lang.org/pub/ruby/1.8/ruby-1.8.7-p334.tar.gz
-tar xvzf ruby-1.8.7-p334.tar.gz
-cd ruby-1.8.7-p334
+wget http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.2-p180.tar.gz
+tar xvzf ruby-1.9.2-p180.tar.gz
+cd ruby-1.9.2-p180
 ./configure --prefix=/opt/ruby
 make
 make install
 cd ..
-rm -rf ruby-1.8.7-p334*
+rm -rf ruby-1.9.2-p180*
 
 # Install RubyGems 1.7.2
 wget http://production.cf.rubygems.org/rubygems/rubygems-1.7.2.tgz
@@ -42,6 +42,31 @@ rm -rf rubygems-1.7.2*
 # Installing chef & Puppet
 /opt/ruby/bin/gem install chef --no-ri --no-rdoc
 /opt/ruby/bin/gem install puppet --no-ri --no-rdoc
+
+# Install PostgreSQL 8.3.14
+wget http://ftp.postgresql.org/pub/source/v8.3.14/postgresql-8.3.14.tar.gz
+tar xzf postgresql-8.3.14.tar.gz
+cd postgresql-8.3.14
+./configure
+make
+make install
+cd ..
+rm -rf postgresql-8.3.14*
+
+# Initialize postgres DB
+adduser --system postgres
+mkdir /usr/local/pgsql/data
+chown postgres /usr/local/pgsql/data
+su -c "/usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data" postgres
+mkdir /usr/local/pgsql/data/log
+chown postgres /usr/local/pgsql/data/log
+
+# Start postgres
+su -c '/usr/local/pgsql/bin/pg_ctl start -l /usr/local/pgsql/data/log/logfile -D /usr/local/pgsql/data' postgres
+
+# Start postgres at boot
+sed -i -e 's/exit 0//g' /etc/rc.local
+echo "su -c '/usr/local/pgsql/bin/pg_ctl start -l /usr/local/pgsql/data/log/logfile -D /usr/local/pgsql/data' postgres" >> /etc/rc.local
 
 # Add /opt/ruby/bin to the global path as the last resort so
 # Ruby, RubyGems, and Chef/Puppet are visible

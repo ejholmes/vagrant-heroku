@@ -6,9 +6,11 @@ yourself by following the directions below or install a prebuilt version from [h
 
 ## Building From Scratch
 
-First, install gems with bundler.
+First, clone the repo and install gems with bundler.
 
 ```bash
+$ git clone git@github.com:ejholmes/vagrant-heroku.git
+$ cd vagrant-heroku
 $ bundle install
 ```
 

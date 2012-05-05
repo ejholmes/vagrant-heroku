@@ -18,21 +18,21 @@ Next, build the box with veewee. Go grab a cup of coffee because this is gonna
 take a while.
 
 ```bash
-$ vagrant basebox build heroku
+$ bundle exec vagrant basebox build heroku
 ```
 
 And finally, install the box for use with Vagrant.
 
 ```bash
-$ vagrant basebox export heroku
+$ bundle exec vagrant basebox export heroku
 ```
 
 Now all you have to do is setup vagrant in your project.
 
 ```bash
-$ vagrant init heroku
-$ vagrant up
-$ vagrant ssh
+$ bundle exec vagrant init heroku
+$ bundle exec vagrant up
+$ bundle exec vagrant ssh
 ```
 
 ## Included Packages

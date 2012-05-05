@@ -44,15 +44,15 @@ rm -rf rubygems-1.3.7*
 /opt/ruby/bin/gem install puppet --no-ri --no-rdoc
 /opt/ruby/bin/gem install bundler --no-ri --no-rdoc
 
-# Install PostgreSQL 8.3.11
-wget http://ftp.postgresql.org/pub/source/v8.3.11/postgresql-8.3.11.tar.gz
-tar xzf postgresql-8.3.11.tar.gz
-cd postgresql-8.3.11
+# Install PostgreSQL 8.3.14
+wget http://ftp.postgresql.org/pub/source/v8.3.14/postgresql-8.3.14.tar.gz
+tar xzf postgresql-8.3.14.tar.gz
+cd postgresql-8.3.14
 ./configure --prefix=/usr
 make
 make install
 cd ..
-rm -rf postgresql-8.3.11*
+rm -rf postgresql-8.3.14*
 
 # Initialize postgres DB
 useradd -p postgres postgres

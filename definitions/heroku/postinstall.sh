@@ -48,7 +48,7 @@ rm -rf rubygems-1.3.7*
 wget http://ftp.postgresql.org/pub/source/v8.3.11/postgresql-8.3.11.tar.gz
 tar xzf postgresql-8.3.11.tar.gz
 cd postgresql-8.3.11
-./configure
+./configure --prefix=/usr
 make
 make install
 cd ..
@@ -56,18 +56,18 @@ rm -rf postgresql-8.3.11*
 
 # Initialize postgres DB
 useradd -p postgres postgres
-mkdir /usr/local/pgsql/data
-chown postgres /usr/local/pgsql/data
-su -c "/usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data" postgres
-mkdir /usr/local/pgsql/data/log
-chown postgres /usr/local/pgsql/data/log
+mkdir -p /var/pgsql/data
+chown postgres /var/pgsql/data
+su -c "/var/pgsql/bin/initdb -D /var/pgsql/data" postgres
+mkdir /var/pgsql/data/log
+chown postgres /var/pgsql/data/log
 
 # Start postgres
-su -c '/usr/local/pgsql/bin/pg_ctl start -l /usr/local/pgsql/data/log/logfile -D /usr/local/pgsql/data' postgres
+su -c '/var/pgsql/bin/pg_ctl start -l /var/pgsql/data/log/logfile -D /var/pgsql/data' postgres
 
 # Start postgres at boot
 sed -i -e 's/exit 0//g' /etc/rc.local
-echo "su -c '/usr/local/pgsql/bin/pg_ctl start -l /usr/local/pgsql/data/log/logfile -D /usr/local/pgsql/data' postgres" >> /etc/rc.local
+echo "su -c '/var/pgsql/bin/pg_ctl start -l /var/pgsql/data/log/logfile -D /var/pgsql/data' postgres" >> /etc/rc.local
 
 # Add /opt/ruby/bin to the global path as the last resort so
 # Ruby, RubyGems, and Chef/Puppet are visible

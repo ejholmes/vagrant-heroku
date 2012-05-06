@@ -57,7 +57,7 @@ rm -rf postgresql-8.3.14*
 useradd -p postgres postgres
 mkdir -p /var/pgsql/data
 chown postgres /var/pgsql/data
-su -c "/usr/bin/initdb -D /var/pgsql/data" postgres
+su -c "/usr/bin/initdb -D /var/pgsql/data --locale=en_US.UTF-8 --encoding=UNICODE" postgres
 mkdir /var/pgsql/data/log
 chown postgres /var/pgsql/data/log
 

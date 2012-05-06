@@ -8,6 +8,7 @@ apt-get -y update
 apt-get -y upgrade
 apt-get -y install linux-headers-$(uname -r) build-essential
 apt-get -y install zlib1g-dev libssl-dev libreadline5-dev
+apt-get -y install git-core vim
 
 # Setup sudo to allow no-password sudo for "admin"
 cp /etc/sudoers /etc/sudoers.orig
@@ -56,16 +57,26 @@ rm -rf postgresql-8.3.14*
 useradd -p postgres postgres
 mkdir -p /var/pgsql/data
 chown postgres /var/pgsql/data
-su -c "/var/pgsql/bin/initdb -D /var/pgsql/data" postgres
+su -c "/usr/bin/initdb -D /var/pgsql/data" postgres
 mkdir /var/pgsql/data/log
 chown postgres /var/pgsql/data/log
 
 # Start postgres
-su -c '/var/pgsql/bin/pg_ctl start -l /var/pgsql/data/log/logfile -D /var/pgsql/data' postgres
+su -c '/usr/bin/pg_ctl start -l /var/pgsql/data/log/logfile -D /var/pgsql/data' postgres
 
 # Start postgres at boot
 sed -i -e 's/exit 0//g' /etc/rc.local
-echo "su -c '/var/pgsql/bin/pg_ctl start -l /var/pgsql/data/log/logfile -D /var/pgsql/data' postgres" >> /etc/rc.local
+echo "su -c '/usr/bin/pg_ctl start -l /var/pgsql/data/log/logfile -D /var/pgsql/data' postgres" >> /etc/rc.local
+
+# Install NodeJs for a JavaScript runtime
+git clone https://github.com/joyent/node.git
+cd node
+git checkout v0.4.7
+./configure --prefix=/usr
+make
+make install
+cd ..
+rm -rf node*
 
 # Add /opt/ruby/bin to the global path as the last resort so
 # Ruby, RubyGems, and Chef/Puppet are visible

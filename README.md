@@ -49,3 +49,4 @@ the Celadon Cedar stack.
 * Ruby 1.9.2-p180 MRI
 * RubyGems 1.3.7
 * PostgreSQL 8.3.14
+* NodeJS 0.4.7

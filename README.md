@@ -50,3 +50,26 @@ the Celadon Cedar stack.
 * RubyGems 1.3.7
 * PostgreSQL 8.3.14
 * NodeJS 0.4.7
+
+## Gotchas
+
+**RubyGems Version**
+
+Since heroku uses an older version of RubyGems (1.3.7) you may want to update
+this in your environment if some of your development gems depend on a newer
+version.
+
+**PostgreSQL Credentials**
+
+You can use the username `postgres` with a nil password. Something like this
+should work:
+
+```yaml
+development:
+  adapter: postgresql
+  database: myapp_development
+  encoding: unicode
+  host: localhost
+  username: postgres
+  password:
+```

@@ -8,7 +8,7 @@ apt-get -y update
 apt-get -y upgrade
 apt-get -y install linux-headers-$(uname -r) build-essential
 apt-get -y install zlib1g-dev libssl-dev libreadline5-dev
-apt-get -y install libxml2-dev libxslt libcurl4-openssl-dev
+apt-get -y install libxml2-dev libxslt curl libcurl4-openssl-dev
 apt-get clean
 
 # Setup sudo to allow no-password sudo for "admin"

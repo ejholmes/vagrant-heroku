@@ -8,8 +8,6 @@ apt-get -y update
 apt-get -y upgrade
 apt-get -y install linux-headers-$(uname -r) build-essential
 apt-get -y install zlib1g-dev libssl-dev libreadline5-dev
-apt-get -y install libxml2-dev libxslt curl libcurl4-openssl-dev
-apt-get clean
 
 # Setup sudo to allow no-password sudo for "admin"
 cp /etc/sudoers /etc/sudoers.orig
@@ -106,6 +104,11 @@ rm /etc/udev/rules.d/70-persistent-net.rules
 mkdir /etc/udev/rules.d/70-persistent-net.rules
 rm -rf /dev/.udev/
 rm /lib/udev/rules.d/75-persistent-net-generator.rules
+
+# Install some libraries
+apt-get -y install libxml2-dev libxslt-dev curl libcurl4-openssl-dev
+apt-get -y install imagemagick libmagickcore-dev libmagickwand-dev
+apt-get clean
 
 echo "Adding a 2 sec delay to the interface up, to make the dhclient happy"
 echo "pre-up sleep 2" >> /etc/network/interfaces

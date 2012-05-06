@@ -4,9 +4,13 @@ yourself by following the directions below or install a prebuilt version from [h
 
 ## Easy install
 
+Add the following to your `Vagrantfile`.
+
 ```ruby
-config.vm.box = "heroku"
-config.vm.box_url = "http://domain.com/path/to/heroku.box"
+Vagrant::Config.run do |config|
+  config.vm.box = "heroku"
+  config.vm.box_url = "http://domain.com/path/to/heroku.box"
+end
 ```
 
 ## Building From Scratch

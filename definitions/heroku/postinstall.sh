@@ -28,7 +28,8 @@ make
 make install
 cd ..
 rm -rf ruby-1.9.2-p180*
-chmod a+w /opt/ruby
+chown -R root:admin /opt/ruby
+chmod -R g+w /opt/ruby
 
 # Install RubyGems 1.3.7
 wget http://production.cf.rubygems.org/rubygems/rubygems-1.3.7.tgz

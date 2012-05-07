@@ -13,6 +13,8 @@ Vagrant::Config.run do |config|
 end
 ```
 
+And run `vagrant up`. The box will be downloaded and imported for you.
+
 ## Building From Scratch
 
 First, clone the repo and install gems with bundler.

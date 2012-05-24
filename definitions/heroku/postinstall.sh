@@ -78,6 +78,9 @@ su -c "/usr/bin/initdb -D /var/pgsql/data --locale=en_US.UTF-8 --encoding=UNICOD
 mkdir /var/pgsql/data/log
 chown postgres /var/pgsql/data/log
 
+# Add 'vagrant' role
+su -c 'createuser vagrant -s' postgres
+
 # Start postgres
 su -c '/usr/bin/pg_ctl start -l /var/pgsql/data/log/logfile -D /var/pgsql/data' postgres
 

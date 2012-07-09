@@ -20,14 +20,14 @@ apt-get -y install nfs-common
 
 # Install Ruby from source in /opt so that users of Vagrant
 # can install their own Rubies using packages or however.
-wget http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.2-p180.tar.gz
-tar xvzf ruby-1.9.2-p180.tar.gz
-cd ruby-1.9.2-p180
+wget http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.2-p290.tar.gz
+tar xvzf ruby-1.9.2-p290.tar.gz
+cd ruby-1.9.2-p290
 ./configure --prefix=/opt/ruby
 make
 make install
 cd ..
-rm -rf ruby-1.9.2-p180*
+rm -rf ruby-1.9.2-p290*
 chown -R root:admin /opt/ruby
 chmod -R g+w /opt/ruby
 

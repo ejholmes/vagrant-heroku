@@ -53,7 +53,7 @@ The packages that are included are carefully selected to closely match those on
 the Celadon Cedar stack.
 
 * Ubuntu 10.04 64bit
-* Ruby 1.9.2-p180 MRI
+* Ruby 1.9.2-p290 MRI
 * RubyGems 1.3.7
 * PostgreSQL 8.3.14
 * NodeJS 0.4.7

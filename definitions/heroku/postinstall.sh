@@ -122,6 +122,9 @@ apt-get -y install libxml2-dev libxslt-dev curl libcurl4-openssl-dev
 apt-get -y install imagemagick libmagickcore-dev libmagickwand-dev
 apt-get clean
 
+# Set locale
+echo 'LC_ALL="en_US.UTF-8"' >> /etc/default/locale
+
 echo "Adding a 2 sec delay to the interface up, to make the dhclient happy"
 echo "pre-up sleep 2" >> /etc/network/interfaces
 exit

@@ -1,4 +1,5 @@
 *.iso
 *.box
+Gemfile.lock
 /.bundle
 /bin

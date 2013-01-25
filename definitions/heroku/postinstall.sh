@@ -48,6 +48,9 @@ rm -rf rubygems-1.3.7*
 /opt/ruby/bin/gem install puppet --no-ri --no-rdoc
 /opt/ruby/bin/gem install bundler --no-ri --no-rdoc
 
+# Install Foreman
+/opt/ruby/bin/gem install foreman --no-ri --no-rdoc
+
 # Install pip, virtualenv, and virtualenvwrapper
 easy_install pip
 pip install virtualenv
@@ -56,9 +59,6 @@ pip install virtualenvwrapper
 # Add a basic virtualenvwrapper config to .bashrc
 echo "export WORKON_HOME=/home/vagrant/.virtualenvs" >> /home/vagrant/.bashrc
 echo "source /usr/local/bin/virtualenvwrapper.sh" >> /home/vagrant/.bashrc
-
-# Install Foreman
-/opt/ruby/bin/gem install foreman --no-ri --no-rdoc
 
 # Install PostgreSQL 9.1.5
 wget http://ftp.postgresql.org/pub/source/v9.1.5/postgresql-9.1.5.tar.gz

@@ -55,8 +55,10 @@ the Celadon Cedar stack.
 * Ubuntu 10.04 64bit
 * Ruby 1.9.2-p290 MRI
 * RubyGems 1.3.7
+* Python with pip, virtualenv, and virtualenvwrapper
 * PostgreSQL 9.1.5
 * NodeJS 0.4.7
+* Foreman https://github.com/ddollar/foreman
 
 ## Gotchas
 

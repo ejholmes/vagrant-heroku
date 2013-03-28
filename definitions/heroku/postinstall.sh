@@ -48,6 +48,9 @@ rm -rf rubygems-1.3.7*
 /opt/ruby/bin/gem install puppet --no-ri --no-rdoc
 /opt/ruby/bin/gem install bundler --no-ri --no-rdoc
 
+# Add the Puppet group so Puppet runs without issue
+groupadd puppet
+
 # Install Foreman
 /opt/ruby/bin/gem install foreman --no-ri --no-rdoc
 

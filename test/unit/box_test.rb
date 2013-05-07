@@ -6,7 +6,7 @@ class BoxTest < MiniTest::Unit::TestCase
   end
 
   def test_ruby_version
-    assert_version '/opt/ruby/bin/ruby -v', '1.9.2p290'
+    assert_version '/opt/ruby/bin/ruby -v', '1.9.3p392'
   end
 
   def test_rubygems_version

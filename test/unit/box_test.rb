@@ -18,11 +18,11 @@ class BoxTest < MiniTest::Unit::TestCase
   end
 
   def test_postgresql_version
-    assert_version 'pg_config --version', '9.1.5'
+    assert_version 'pg_config --version', '9.2.4'
   end
 
   def test_postgresql_connection
-    assert_version 'psql -c "select version();" postgres postgres; ls', '9.1.5'
+    assert_version 'psql -c "select version();" postgres postgres; ls', '9.2.4'
   end
 
 private

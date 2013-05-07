@@ -35,13 +35,13 @@ rm -rf ruby-1.9.3-p392*
 chown -R root:admin /opt/ruby
 chmod -R g+w /opt/ruby
 
-# Install RubyGems 1.3.7
-wget http://production.cf.rubygems.org/rubygems/rubygems-1.3.7.tgz
-tar xzf rubygems-1.3.7.tgz
-cd rubygems-1.3.7
+# Install RubyGems 1.8.23
+wget http://production.cf.rubygems.org/rubygems/rubygems-1.8.23.tgz
+tar xzf rubygems-1.8.23.tgz
+cd rubygems-1.8.23
 /opt/ruby/bin/ruby setup.rb
 cd ..
-rm -rf rubygems-1.3.7*
+rm -rf rubygems-1.8.23*
 
 # Installing chef & Puppet
 /opt/ruby/bin/gem install chef --no-ri --no-rdoc

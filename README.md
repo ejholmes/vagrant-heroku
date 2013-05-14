@@ -29,22 +29,22 @@ Next, build the box with veewee. Go grab a cup of coffee because this is gonna
 take a while.
 
 ```bash
-$ bundle exec vagrant basebox build heroku
+$ bundle exec veewee vbox build heroku
 ```
 
 And finally, install the box for use with Vagrant.
 
 ```bash
-$ bundle exec vagrant basebox export heroku
-$ bundle exec vagrant box add heroku heroku.box
+$ bundle exec veewee vbox export heroku
+$ vagrant box add heroku heroku.box
 ```
 
 Now all you have to do is setup vagrant in your project.
 
 ```bash
-$ bundle exec vagrant init heroku
-$ bundle exec vagrant up
-$ bundle exec vagrant ssh
+$ vagrant init heroku
+$ vagrant up
+$ vagrant ssh
 ```
 
 ## Included Packages
@@ -53,17 +53,9 @@ The packages that are included are carefully selected to closely match those on
 the Celadon Cedar stack.
 
 * Ubuntu 10.04 64bit
-* Ruby 1.9.2-p290 MRI
-* RubyGems 1.3.7
+* Ruby 1.9.2-p392 MRI
+* RubyGems 1.8.23
 * Python with pip, virtualenv, and virtualenvwrapper
-* PostgreSQL 9.1.5
+* PostgreSQL 9.2.4
 * NodeJS 0.4.7
 * Foreman https://github.com/ddollar/foreman
-
-## Gotchas
-
-**RubyGems Version**
-
-Since heroku uses an older version of RubyGems (1.3.7) you may want to update
-this in your environment if some of your development gems depend on a newer
-version.

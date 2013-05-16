@@ -32,6 +32,8 @@ take a while.
 $ bundle exec veewee vbox build heroku
 ```
 
+There is also a 2x dyno box available, just substitute every instance of `heroku` with `heroku-2x`.
+
 And finally, install the box for use with Vagrant.
 
 ```bash
@@ -53,7 +55,7 @@ The packages that are included are carefully selected to closely match those on
 the Celadon Cedar stack.
 
 * Ubuntu 10.04 64bit
-* Ruby 1.9.2-p392 MRI
+* Ruby 1.9.3-p392 MRI
 * RubyGems 1.8.23
 * Python with pip, virtualenv, and virtualenvwrapper
 * PostgreSQL 9.2.4

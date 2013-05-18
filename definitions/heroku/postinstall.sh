@@ -139,6 +139,9 @@ mkdir /etc/udev/rules.d/70-persistent-net.rules
 rm -rf /dev/.udev/
 rm /lib/udev/rules.d/75-persistent-net-generator.rules
 
+# Install Heroku toolbelt
+wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+
 # Install some libraries
 apt-get -y install libxml2-dev libxslt-dev curl libcurl4-openssl-dev
 apt-get -y install imagemagick libmagickcore-dev libmagickwand-dev

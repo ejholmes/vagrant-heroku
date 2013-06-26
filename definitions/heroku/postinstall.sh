@@ -68,7 +68,7 @@ wget http://ftp.postgresql.org/pub/source/v9.2.4/postgresql-9.2.4.tar.bz2
 tar jxf postgresql-9.2.4.tar.bz2
 cd postgresql-9.2.4
 ./configure --prefix=/usr
-make
+make world
 make install
 cd ..
 rm -rf postgresql-9.2.4*

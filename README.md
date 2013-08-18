@@ -20,7 +20,7 @@ And run `vagrant up`. The box will be downloaded and imported for you.
 First, clone the repo and install gems with bundler.
 
 ```bash
-$ git clone git@github.com:ejholmes/vagrant-heroku.git
+$ git clone https://github.com/ejholmes/vagrant-heroku.git
 $ cd vagrant-heroku
 $ bundle install
 ```

@@ -69,7 +69,7 @@ tar jxf postgresql-9.2.4.tar.bz2
 cd postgresql-9.2.4
 ./configure --prefix=/usr
 make world
-make install
+make install-world
 cd ..
 rm -rf postgresql-9.2.4*
 
